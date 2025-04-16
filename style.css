@@ -1,0 +1,265 @@
+body {
+    font-family: "Noto Sans Mono", serif;
+    background-color: #000000;
+    margin: 0;
+    display: flex;
+    min-height: 100vh; 
+}
+
+h1, p {
+    color: rgb(128, 128, 128);
+}
+
+.container {
+    display: flex;
+    flex-grow: 1;
+}
+
+.sidebar {
+    width: 45px;
+    background-color: #111111;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-nav li {
+    padding: 10px 16px; /* Немного больше вертикального отступа */
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: #111111;
+    border: none;
+    color: #bdbdbd;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column; /* Изменяем направление flex */
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Центрируем текст */
+    width: 50px; /* Фиксированная ширина кнопки */
+    height: 45px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-nav li:hover {
+    background-color: #424242;
+}
+
+.sidebar-nav li.active {
+    background-color: #fefefe;
+    color: rgb(0, 0, 0);
+}
+
+.sidebar-nav li i {
+    font-size: 1.5em; /* Увеличиваем размер иконки */
+    margin-bottom: 5px; /* Отступ между иконкой и текстом */
+    color: inherit;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Высота всей видимой области */
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    overflow: hidden; /* На случай больших отступов */
+    background-color: #000000;
+}
+
+.tab-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none; /* Отключаем взаимодействие для неактивных вкладок */
+}
+
+.tab-content.active {
+    opacity: 1;
+    pointer-events: auto; /* Включаем взаимодействие для активной вкладки */
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет карточкам переноситься на следующую строку */
+    gap: 20px; /* Задает равные отступы между карточками */
+    justify-content: center; /* Равномерное распределение карточек по ширине */
+    margin: 0 auto; /* Центрируем контейнер */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.list {
+  display: flex;
+  color: #bdbdbd;
+  justify-content: center;
+  margin: 13% 0 0 0;
+}
+
+.card {
+  background-color: #191919;
+  border-radius: 14px;
+  padding: 20px;
+  width: calc(16% - 20px); /* Задаем ширину карточки относительно контейнера */
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  min-width: 100px; /* Минимальная ширина для адаптивности */
+  text-decoration: none; /* Убирает подчеркивание текста в ссылке */
+  color: inherit; /* Наследует цвет текста от родителя */
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%; /* Одна карточка в строке на экранах до 480px */
+  }
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  background-color: #252525; /* Добавляем легкое изменение фона */
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px;
+  background-size: cover;
+  border-radius: 50%;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card:hover .icon {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  font-size: 14px;
+  text-transform: lowercase;
+  color: #ffffff;
+  margin: 0 0 5px;
+}
+
+.card p {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #c0c0c0;
+  margin: 0;
+}
+
+.zen {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Zen_Browser_logo_%28red_circles%29.svg/2048px-Zen_Browser_logo_%28red_circles%29.svg.png');
+}
+
+.discord {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoCkY_K9TX2dN21sxK2Np0a2vqnKKHGWP7Ow&s');
+}
+
+.telegram {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Telegram_Messenger.png/800px-Telegram_Messenger.png');
+}
+
+.obsidian {
+  background-image: url('https://forum.obsidian.md/uploads/default/original/3X/9/f/9f1b5b46aed533f5386cf276ab2cdce48cbd2e25.png');
+}
+
+.git {
+  background-image: url('https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png');
+}
+
+.vscode {
+  background-image: url('https://code.visualstudio.com/assets/branding/app-icon.png');
+}
+
+.powershell {
+  background-image: url('https://cdn.iconscout.com/icon/free/png-256/free-powershell-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-brand-vol-5-pack-logos-icons-2945093.png?f=webp&w=256');
+}
+
+.rar {
+  background-image: url('https://img.icons8.com/?size=512&id=13447&format=png');
+}
+
+.cccp {
+  background-image: url('https://images.sftcdn.net/images/t_app-icon-m/p/de1bf4fc-99ec-11e6-85bc-00163ec9f5fa/529691392/combined-community-codec-pack-imgingest-3878709039459670149.png');
+}
+
+.youtubefix {
+  background-image: url('https://static-00.iconduck.com/assets.00/youtube-icon-1024x1024-bz7igldh.png');
+}
+
+.outline {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqj0GxEiQXGY1HQ0goL2TmDcPcUEkSZc9Thg&s');
+}
+
+.outline-manager {
+  background-image: url('https://outline-manager.viniciusfortuna.com/images/launcher-icon.png')
+}
+
+.steam {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/512px-Steam_icon_logo.svg.png');
+}
+
+.cpacket {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/6132/6132222.png');
+}
+
+.utorrent {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9f/UTorrent_%28logo%29.png');
+}
+
+.kms {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRggGAt0RwruoXOVxRfGcxVRVvqf1yKDeCo9Q&s');
+}
+
+.memreduct {
+  background-image: url('https://projka.ru/wp-content/uploads/2019/07/memreduct_2019Icon.png');
+}
+
+.defender {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/85/Microsoft_Defender_2020_Fluent_Design_icon.png');
+}
+
+.uninstall {
+  background-image: url('https://www.freeiconspng.com/uploads/uninstall-icon-png-2.png');
+}
+
+.obs {
+  background-image: url('https://img.icons8.com/win10/512/obs-studio.png');
+}
+
+.bitwarden {
+  background-image: url('https://static-00.iconduck.com/assets.00/bitwarden-v2-icon-2048x2048-umubgkfr.png');
+}
+
+.bitdo {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzgLJpJV7ZTFCTv6PYpo7WL-Q2TtYTYikkng&s');
+}
+
+.keyboard {
+  background-image: url('https://cdn-icons-png.freepik.com/256/3355/3355096.png?semt=ais_hybrid');
+}
+
+.extension {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/3793/3793602.png');
+}
+
+.terminal {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/b/b3/Terminalicon2.png');
+}
+
+.laptop {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/3104/3104000.png');
+}
+
